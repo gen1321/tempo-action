@@ -8,3 +8,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.developers_tempo_auth_tokens }}
+    - ${{ inputs.pr_body }}
