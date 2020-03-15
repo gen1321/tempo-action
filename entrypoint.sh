@@ -1,3 +1,2 @@
 #!/bin/sh -l
-ls
-ruby /action.rb
+ruby /action.rb $1
