@@ -3,6 +3,7 @@
 require 'pry'
 require 'pry-doc'
 require 'rest-client'
+require 'base64'
 
 TEMPO_WORKLOGS_ENDPOINT = 'https://api.tempo.io/core/3/worklogs'
 
@@ -14,7 +15,7 @@ auth_hash =
     .split(',')
     .map { |x| x.split(':') }
     .each_with_object({}) { |v, acc| acc[v[0]] = {tempo_auth_token: v[1], jira_account_id: v[2] }}
-pr_body = ARGV[1]
+pr_body = Base64.decode64(ARGV[1])
 
 p auth_hash
 p pr_body.scan(/(time_spent):([0-9])/)
