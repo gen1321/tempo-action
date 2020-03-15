@@ -17,6 +17,7 @@ auth_hash =
 pr_body = ARGV[1]
 
 p auth_hash
+p pr_body.scan(/(time_spent):([0-9])/)
 timespent = pr_body.scan(/(time_spent):([0-9])/).last.last.to_i * 60 * 60
 user = auth_hash[author]
 author_oauth_key = user[:tempo_auth_token]
